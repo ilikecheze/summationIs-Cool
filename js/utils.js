@@ -90,6 +90,7 @@ function buyUpg(layer, id, auto=false) {
 	}
 	player[layer].upgrades.push(id);
 	if (upg.onPurchase != undefined) run(upg.onPurchase, upg)
+	if (!auto) updateTemp()
 	if (auto) player[layer].upgCool = tmp[layer].upgCool
 }
 

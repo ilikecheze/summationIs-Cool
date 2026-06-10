@@ -527,7 +527,7 @@ addLayer("v", {
                 if(hasUpgrade("e",61)) eff = eff.pow(upgradeEffect("e",61))
                 if(hasUpgrade("e",111)) eff = eff.pow(upgradeEffect("e",111))
                 if (inChallenge("u", 12)) eff = decimalOne
-                return eff
+                return eff.pow10
             },
             effectDisplay(){
                 let v12dis = format(getVUpgEff(12))+"x"

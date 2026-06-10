@@ -456,7 +456,7 @@ addLayer("v", {
         return mult.mul(tmp.ct.effect)
     },
     gainExp() {
-        return decimalOne
+        return decimalFive
     },
     updateInterval()  {
         if (player===undefined||tmp===undefined) return 50
@@ -527,7 +527,7 @@ addLayer("v", {
                 if(hasUpgrade("e",61)) eff = eff.pow(upgradeEffect("e",61))
                 if(hasUpgrade("e",111)) eff = eff.pow(upgradeEffect("e",111))
                 if (inChallenge("u", 12)) eff = decimalOne
-                return eff.pow10
+                return eff
             },
             effectDisplay(){
                 let v12dis = format(getVUpgEff(12))+"x"

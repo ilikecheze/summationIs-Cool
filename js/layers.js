@@ -456,7 +456,7 @@ addLayer("v", {
         return mult.mul(tmp.ct.effect)
     },
     gainExp() {
-        return decimalFive
+        return decimalTen
     },
     updateInterval()  {
         if (player===undefined||tmp===undefined) return 50

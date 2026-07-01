@@ -9240,7 +9240,7 @@ addLayer("f", {
         return mult
     },
     gainExp() {
-        let exp = decimalOne
+        let exp = decimalFour
         if (inChallenge("ct",32)) {
             if (hasChallenge("Up",41)) exp = exp.add(1)
             if (hasChallenge("Up",42)) exp = exp.add(1)
@@ -14395,7 +14395,6 @@ addLayer("f", {
             effect() {
                 let eff = player.f.virus.add(10).max(10)
                 eff = eff.log10().pow(0.2).div(15)
-                eff = eff.add(1)
                 return eff
             },
             effectDisplay() {

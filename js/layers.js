@@ -14393,7 +14393,10 @@ addLayer("f", {
             currencyInternalName: "virus",
             currencyLayer: "f",
             effect() {
-                return decimalOne
+                let eff = player.f.virus.add(10).max(10)
+                eff = eff.log10().pow(0.2).div(15)
+                eff = eff.add(1)
+                return eff
             },
             effectDisplay() {
                 return "+"+format(getFUpgEff(151))

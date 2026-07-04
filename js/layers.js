@@ -15956,7 +15956,7 @@ addLayer("e", {
     },
     effect(){//IPgain
         let eff = player.e.points
-        eff = Decimal.pow(this.effbase(),eff).sub(1)
+        eff = Decimal.pow(this.effbase(),eff).pow(5)
         if (inChallenge("ct",32)) {
             eff = player.e.points
             if (hasUpgrade("Uu",21)) eff = eff.mul(tmp.Uu.upgrades[21].effect)

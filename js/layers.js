@@ -20335,7 +20335,7 @@ addLayer("e", {
                 if (x.gte(Decimal.pow(10,Decimal.pow(10,2e4)))) x = x.log10().log10().div(2e4).pow(4).mul(2e4).pow10().pow10()
                 if (x.gte(1e10)) x = x.log10().div(10).pow(4).mul(10).pow10()
                 if (x.gte(2e5)) x = x.div(2e5).pow(2).mul(2e5)
-                let cost = Decimal.pow(3, x.pow(1.7)).mul(65e7)
+                let cost = Decimal.pow(3, x.pow(1.7)).mul(6)
                 return cost
             },
             scaleDiv() {

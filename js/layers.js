@@ -29230,7 +29230,7 @@ addLayer("ct", {
             cost: decimalOne,
             effect(){
                 let p = player.e.p
-                let Jihyo = Decimal.add(p.layer,new Decimal(p.mag).slog()).pow(0.085)
+                let Jihyo = Decimal.add(p.layer,new Decimal(p.mag).slog()).pow(1.944)
                 return Jihyo
             },
             effectDisplay(){
@@ -39866,6 +39866,7 @@ addLayer("ct", {
                 }
             },
             buyMax() {//10^(1.01^(log10(x)/1e7-100)*1e9)
+                if (!tmp[this.layer].buyables[this.id].canAfford) return
                 let s = player.ct.CorVid
                 let c = inChallenge("ct",32)?"e1000":1e58
                 let target = s.div(c).log(10).root(1.25)

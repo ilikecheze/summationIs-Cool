@@ -172,8 +172,12 @@ function fixData(defaultData, newData) {
 			else fixData(defaultData[item], newData[item])
 		}
 		else if (defaultData[item] instanceof Decimal) { // Convert to Decimal
-			if (newData[item] === undefined) newData[item] = defaultData[item]
-			else newData[item] = new Decimal(newData[item])
+			if (newData[item] === undefined || newData[item] === null) newData[item] = defaultData[item]
+			else {
+				let parsed = new Decimal(newData[item])
+				if (parsed.eq(parsed)) newData[item] = parsed
+				else newData[item] = defaultData[item]
+			}
 		}
 		else if ((!!defaultData[item]) && (typeof defaultData[item] === "object")) {
 			if (newData[item] === undefined || (typeof defaultData[item] !== "object")) {

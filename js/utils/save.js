@@ -5,6 +5,7 @@ function save(force) {
 	let t = new Date().getTime()
 	if (logSave) console.log("saved at " + t)
 	if (!(player === null)) player.lastSave = t
+	repairNaNs(player)
 	NaNcheck(player)
 	if (NaNalert && !force) return
 	localStorage.setItem(modInfo.id, btoa(unescape(encodeURIComponent(JSON.stringify(player)))));
@@ -149,6 +150,7 @@ function fixSave() {
 	fixData(defaultData, player)
 
 	for (layer in layers) {
+		repairNaNs(player[layer])
 		if (player[layer].best !== undefined) player[layer].best = new Decimal(player[layer].best)
 		if (player[layer].total !== undefined) player[layer].total = new Decimal(player[layer].total)
 
@@ -250,7 +252,26 @@ function setupModInfo() {
 
 }
 
+function repairNaNs(data) {
+	if (data == null) return data
+	if (Array.isArray(data)) {
+		for (let i = 0; i < data.length; i++) data[i] = repairNaNs(data[i])
+		return data
+	}
+	if (data instanceof Decimal) {
+		if (data.eq(data)) return data
+		return decimalZero
+	}
+	if ((!!data) && (data.constructor === Object)) {
+		for (let item in data) {
+			if (Object.prototype.hasOwnProperty.call(data, item)) data[item] = repairNaNs(data[item])
+		}
+	}
+	return data
+}
+
 function fixNaNs() {
+	repairNaNs(player)
 	NaNcheck(player)
 }
 

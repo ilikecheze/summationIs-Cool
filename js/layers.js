@@ -38518,7 +38518,7 @@ addLayer("ct", {
 			cost(x=player[this.layer].buyables[this.id]) { // cost for buying xth buyable, can be an object if there are multiple currencies
                 if (x.gte(180)) x = x.div(180).pow(2).mul(180)
                 if (x.gte(80)) x = x.div(80).pow(2).mul(80)
-                let cost = Decimal.pow(2, x.pow(1.8)).mul(1e13)
+                let cost = Decimal.pow(2, x.pow(0.95)).mul(0.4)
                 return cost.floor()
             },
             base() { 

@@ -29997,7 +29997,7 @@ addLayer("ct", {
             currencyDisplayName: "LaBas",
             currencyLayer: "ct",
             effect(){
-                let Rosé = player.ct.CorVid.max(10).log10().pow(1.2)
+                let Rosé = player.ct.CorVid.max(10).pow(1.2)
                 return Rosé.sub(1)
             },
             effectDisplay(){

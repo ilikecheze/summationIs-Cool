@@ -41239,8 +41239,8 @@ addLayer("ct", {
         151: {
 			title: "Side Vaxxer",
 			cost(x=player[this.layer].buyables[this.id]) { // cost for buying xth buyable, can be an object if there are multiple currencies
-                if (x.gte(10)) x= x.div(10).pow(1.3)
-                let cost = Decimal.pow(1.5,x.pow(0.6))
+                if (x.gte(10)) x= x.div(10).pow(0.4)
+                let cost = Decimal.pow(0.8,x.pow(0.6))
                 return cost.floor()
             },
             base(x=player[this.layer].buyables[this.id]) { 

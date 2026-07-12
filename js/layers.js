@@ -39126,7 +39126,7 @@ addLayer("ct", {
         33: {
 			title: "Corona Booster",
 			cost(x=player[this.layer].buyables[this.id]) { // cost for buying xth buyable, can be an object if there are multiple currencies
-                let cost = x.add(1).pow(4).add(2)
+                let cost = x
                 return cost.floor()
             },
             base() { 
@@ -39232,12 +39232,12 @@ addLayer("ct", {
                 let exp = 5
                 if (hasUpgrade("ct",76)) exp -=2
                 if (hasUpgrade("ct",105)) exp -=2
-                if (x.gte(1e120)) x = x.log10().div(120).pow(2).mul(120)
-                if (x.gte(1e100)) x = x.div(1e100).pow(3)
-                if (x.gte(200)) x = x.div(200).pow(2)
-                if (x.gte(100)) x = Decimal.pow(1.02,x.sub(100))
-                if (x.gte(20)) x = x.div(20).pow(3)
-                let cost = x.pow(exp)
+                if (x.gte(1e120)) x = x.log10().div(120).pow(1.04).mul(10)
+                if (x.gte(1e100)) x = x.div(1e100).pow(1.02)
+                if (x.gte(200)) x = x.div(200).pow(1.01)
+                if (x.gte(100)) x = Decimal.pow(0.83,x.sub(100))
+                if (x.gte(20)) x = x.div(20).pow(0.4)
+                let cost = x.pow(exp).pow(0.05)
                 return cost.floor()
             },
             base() { 

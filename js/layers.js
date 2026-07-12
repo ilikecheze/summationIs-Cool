@@ -39232,12 +39232,12 @@ addLayer("ct", {
                 let exp = 5
                 if (hasUpgrade("ct",76)) exp -=2
                 if (hasUpgrade("ct",105)) exp -=2
-                if (x.gte(1e120)) x = x.log10().div(120).pow(2).mul(120).pow10()
-                if (x.gte(1e100)) x = x.div(1e100).pow(3).mul(1e100)
-                if (x.gte(200)) x = x.div(200).pow(2).mul(200)
-                if (x.gte(100)) x = Decimal.pow(1.02,x.sub(100)).mul(100)
-                if (x.gte(20)) x = x.div(20).pow(3).mul(20)
-                let cost = x.pow(exp).mul(3e9).add(13560952591).pow10()
+                if (x.gte(1e120)) x = x.log10().div(120).pow(2).mul(120)
+                if (x.gte(1e100)) x = x.div(1e100).pow(3)
+                if (x.gte(200)) x = x.div(200).pow(2)
+                if (x.gte(100)) x = Decimal.pow(1.02,x.sub(100))
+                if (x.gte(20)) x = x.div(20).pow(3)
+                let cost = x.pow(exp)
                 return cost.floor()
             },
             base() { 

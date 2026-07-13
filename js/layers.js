@@ -41428,8 +41428,8 @@ addLayer("ct", {
         161: {
 			title: "Adverse Gain",
 			cost(x=player[this.layer].buyables[this.id]) { // cost for buying xth buyable, can be an object if there are multiple currencies
-                if (x.gte(5e4)) x = x.mul(2).log10().div(5).pow(1.5).mul(5).pow10().div(2)
-                let cost = Decimal.pow(1e3,x.pow(1.4)).mul(1e119)
+                if (x.gte(5e4)) x = x.mul(2).log10()
+                let cost = Decimal.pow(1e3,x.pow(0.8))
                 return cost.floor()
             },
             slog() { 

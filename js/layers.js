@@ -32166,11 +32166,11 @@ addLayer("ct", {
             currencyDisplayName: "Adverse Effects",
             currencyLayer: "ct",
             effect(){
-                let Tzuyu = powExp(player.ct.Avaxxers.max(10).log10(),1.3).pow(0.15)
+                let Tzuyu = powExp(player.ct.Avaxxers.max(10),1.8)
                 if (hasUpgrade("ct",266)) Tzuyu = powExp(Tzuyu,2)
-                if (Tzuyu.gte(Decimal.pow(10,25000)) && hasUpgrade("ct",291)) Tzuyu = Tzuyu.log10().div(25000).pow(8).mul(25000).pow10()
-                if (Tzuyu.gte(Decimal.pow(10,1e8))) Tzuyu = Tzuyu.log10().div(1e8).pow(0.2).mul(1e8).pow10()
-                if (Tzuyu.gte(Decimal.pow(10,1e12))) Tzuyu = Tzuyu.log10().log10().div(12).pow(0.3).mul(12).pow10().pow10()
+                if (Tzuyu.gte(Decimal.pow(10,25000)) && hasUpgrade("ct",291)) Tzuyu = Tzuyu.pow(8).mul(25000).pow10()
+                if (Tzuyu.gte(Decimal.pow(10,1e8))) Tzuyu = Tzuyu.pow(0.2).mul(1e8).pow10()
+                if (Tzuyu.gte(Decimal.pow(10,1e12))) Tzuyu = Tzuyu.mul(12).pow10().pow10()
                 return Tzuyu
             },
             effectDisplay(){
@@ -32197,8 +32197,8 @@ addLayer("ct", {
             currencyDisplayName: "Adversities",
             currencyLayer: "ct",
             effect(){
-                let Jisoo = player.ct.Adversity.max(10).log10().pow(0.15).sub(1).div(4)
-                if (Jisoo.gte(0.15)) Jisoo = Jisoo.div(0.015).log10().pow(0.5).mul(0.15)
+                let Jisoo = player.ct.Adversity.max(10).log10().pow(1.15)
+                if (Jisoo.gte(0.15)) Jisoo = Jisoo.div(0.015).pow(5).mul(15)
                 if (hasUpgrade("ct",262)) Jisoo = Jisoo.mul(1.5)
                 return Jisoo.min(0.67)
             },

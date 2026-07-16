@@ -41601,7 +41601,7 @@ addLayer("ct", {
 			cost(x=player[this.layer].buyables[this.id]) { // cost for buying xth buyable, can be an object if there are multiple currencies
                 let base = tmp.ct.buyables[163].costbase
                 let exp = tmp.ct.buyables[163].costexp
-                let cost = Decimal.pow(base,x.pow(exp)).mul(1e14)
+                let cost = Decimal.pow(base,x.pow(exp))
                 return cost.floor()
             },
             costbase() { 
@@ -41612,19 +41612,19 @@ addLayer("ct", {
                 return base
             },
             costexp() { 
-                let exp = 1.15
-                if (hasUpgrade("ct",261)) exp=1.13
-                if (hasUpgrade("ct",262)) exp=1.12
-                if (hasUpgrade("ct",263)) exp=1.11
-                if (hasUpgrade("ct",264)) exp=1.1
-                if (hasUpgrade("ct",276)) exp=1.09
-                if (hasUpgrade("ct",283)) exp=1.08
-                if (hasUpgrade("ct",285)) exp=1.07
-                if (hasUpgrade("ct",286)) exp=1.06
-                if (hasUpgrade("ct",331)) exp=1.055
-                if (hasUpgrade("ct",371)) exp=1.053
-                if (hasUpgrade("ct",395)) exp=1.02
-                if (player.ct.inC)exp +=0.1
+                let exp = 1
+                if (hasUpgrade("ct",261)) exp=0.8
+                if (hasUpgrade("ct",262)) exp=0.7
+                if (hasUpgrade("ct",263)) exp=0.6
+                if (hasUpgrade("ct",264)) exp=0.5
+                if (hasUpgrade("ct",276)) exp=0.4
+                if (hasUpgrade("ct",283)) exp=0.3
+                if (hasUpgrade("ct",285)) exp=0.2
+                if (hasUpgrade("ct",286)) exp=0.1
+                if (hasUpgrade("ct",331)) exp=0.01
+                if (hasUpgrade("ct",371)) exp=0.0001
+                if (hasUpgrade("ct",395)) exp=0.0000001
+                if (player.ct.inC)exp +=0.0000000001
                 return exp
             },
             base(x=player[this.layer].buyables[this.id]) { 
